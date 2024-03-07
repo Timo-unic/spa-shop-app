@@ -1,31 +1,41 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-// const h1 = React.createElement('h1', { id: 'title' }, 'hello react')
-const h1 = <h1 id="title">Hello React.js</h1>
+const Title = () => {
+    return <h1>Hello App.js</h1>
+}
 
-// const list = React.createElement(
-//     'ul',
-//     null,
-//     React.createElement('li', null, 'list item-1'),
-//     React.createElement('li', null, 'list item-2'),
-//     React.createElement('li', null, 'list item-3')
-// )
+const Content = () => {
+    return (
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo
+                hic provident, eligendi consectetur ea architecto praesentium
+                odit at sint ex, voluptate nesciunt voluptas sapiente non. Nulla
+                doloremque a mollitia impedit?
+            </p>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut
+                blanditiis porro explicabo modi, mollitia, consequatur
+                perferendis laboriosam ea illum ad fugiat quibusdam voluptatum
+                ipsa eius! Magni voluptas mollitia commodi sunt.
+            </p>
+        </div>
+    )
+}
 
-const list = (
-    <ul>
-        <li>list item-1</li>
-        <li>list item-2</li>
-        <li>list item-3</li>
-    </ul>
-)
-
-const content = (
-    <div>
-        {h1}
-        {list}
-    </div>
-)
+function App() {
+    return (
+        <div>
+            <Title />
+            <Content />
+        </div>
+    )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-root.render(<React.StrictMode>{content}</React.StrictMode>)
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+)
