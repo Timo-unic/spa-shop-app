@@ -1,35 +1,39 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { text } from 'stream/consumers'
 
-const Title = () => {
-    return <h1>Hello App.js</h1>
+interface ItitleProps {
+    text: string
 }
 
-const Content = () => {
+type ContentProps = {
+    text1: string
+    text2: string
+    year: number
+}
+
+const Title = (props: ItitleProps) => {
+    console.log(props)
+    return <h1>Hello {props.text}</h1>
+}
+
+const Content = (props: ContentProps) => {
     return (
-        <div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo
-                hic provident, eligendi consectetur ea architecto praesentium
-                odit at sint ex, voluptate nesciunt voluptas sapiente non. Nulla
-                doloremque a mollitia impedit?
-            </p>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut
-                blanditiis porro explicabo modi, mollitia, consequatur
-                perferendis laboriosam ea illum ad fugiat quibusdam voluptatum
-                ipsa eius! Magni voluptas mollitia commodi sunt.
-            </p>
-        </div>
+        <React.Fragment>
+            <p>{props.text1}</p>
+            <p>{props.text2}</p>
+            <div>Year: {props.year}</div>
+        </React.Fragment>
     )
 }
 
 function App() {
     return (
-        <div>
-            <Title />
-            <Content />
-        </div>
+        <>
+            <Title text="React" />
+            <Title text="Js" />
+            <Content text1="Hello World1" text2="Hello World2" year={2023} />
+        </>
     )
 }
 
