@@ -1,30 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { text } from 'stream/consumers'
+import Content from './Content'
 
 interface ItitleProps {
     text: string
 }
 
-type ContentProps = {
-    text1: string
-    text2: string
-    year: number
-}
-
 const Title = (props: ItitleProps) => {
     console.log(props)
     return <h1>Hello {props.text}</h1>
-}
-
-const Content = (props: ContentProps) => {
-    return (
-        <React.Fragment>
-            <p>{props.text1}</p>
-            <p>{props.text2}</p>
-            <div>Year: {props.year}</div>
-        </React.Fragment>
-    )
 }
 
 function App() {
