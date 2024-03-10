@@ -1,7 +1,17 @@
 import { Grid, Typography } from '@mui/material'
 import ProductsListItem from './ProductsListItem'
+import productsArray from 'utils/productsArray'
 
 type Props = {}
+
+type ProductProps = {
+    title: string
+    price: number
+    rating: number
+    describtion: string
+    features: string
+    categories: string
+}
 
 const ProductsList = (props: Props) => {
     return (
@@ -11,38 +21,27 @@ const ProductsList = (props: Props) => {
             </Typography>
 
             <Grid container spacing={3}>
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem
-                        title="Large candle"
-                        price={10}
-                        rating={5}
-                        describtion="Vestibulum ac diam sit amet quam vehicula elementum sed sit
-                    amet dui. Vivamus magna justo, lacinia eget consectetur sed,
-                    convallis at tellus."
-                        features="2pcks"
-                        categories="Candles"
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem
-                        title="Scented candles"
-                        price={40}
-                        rating={5}
-                        describtion="Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus."
-                        features="Silver 35cm"
-                        categories="Candles"
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                    <ProductsListItem
-                        title="Eucalyptus candle"
-                        price={12}
-                        rating={5}
-                        describtion=""
-                        features=""
-                        categories="Candles"
-                    />
-                </Grid>
+                {productsArray.map(
+                    ({
+                        title,
+                        price,
+                        rating,
+                        describtion,
+                        features,
+                        categories,
+                    }: ProductProps) => (
+                        <Grid item xs={12} sm={6} md={4}>
+                            <ProductsListItem
+                                title={title}
+                                price={price}
+                                rating={rating}
+                                describtion={describtion}
+                                features={features}
+                                categories={categories}
+                            />
+                        </Grid>
+                    )
+                )}
             </Grid>
         </>
     )
