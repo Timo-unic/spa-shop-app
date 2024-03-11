@@ -6,6 +6,7 @@ type Product = {
     features: string
     categories: string
     id:number
+    image: string
 }
 
 const productsArray: Product[] = [
@@ -17,6 +18,7 @@ const productsArray: Product[] = [
     describtion: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
     features: '2pcks',
     categories: 'Candles',
+    image: "/images/product-large.jpg",
 },
 {
     id:2,
@@ -26,6 +28,7 @@ const productsArray: Product[] = [
     describtion: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
     features: 'Silver 35cm',
     categories: 'Candles',
+    image: "/images/product-scented.jpg",
 },
 {
     id:3,
@@ -35,6 +38,7 @@ const productsArray: Product[] = [
     describtion: '',
     features: '',
     categories: 'Candles',
+    image: "/images/product-eucalyptus.jpg",
 },
 {
     id:4,
@@ -44,6 +48,7 @@ const productsArray: Product[] = [
     describtion: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
     features: 'Gold 40cm',
     categories: 'Ceramics',
+    image: "/images/product-creamer.jpg",
 },
 {
     id:5,
@@ -53,6 +58,7 @@ const productsArray: Product[] = [
     describtion: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
     features: 'Platinum 40cm',
     categories: 'Ceramics',
+    image: "/images/product-plates.jpg",
 },
 {
     id:6,
@@ -62,6 +68,7 @@ const productsArray: Product[] = [
     describtion: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
     features: 'Silver 50cm',
     categories: 'Ceramics',
+    image: "/images/product-bowls.jpg",
 },
 {
     id:7,
@@ -71,6 +78,7 @@ const productsArray: Product[] = [
     describtion: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
     features: 'Silver 35cm',
     categories: 'Handmade jewels',
+    image: "/images/product-necklace.jpg",
 },
 {
     id:8,
@@ -80,6 +88,7 @@ const productsArray: Product[] = [
     describtion: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
     features: 'Gold 40cm',
     categories: 'Handmade jewels',
+    image: "/images/product-seashell.jpg",
 },
 {
     id:9,
@@ -89,6 +98,7 @@ const productsArray: Product[] = [
     describtion: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
     features: 'Platinum 40cm',
     categories: 'Handmade jewels',
+    image: "/images/product-pear&gold.jpg",
 },
 {
     id:10,
@@ -98,6 +108,7 @@ const productsArray: Product[] = [
     describtion: "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Pellentesque in ipsum id orci porta dapibus.",
     features: 'Medium',
     categories: 'Plants',
+    image: "/images/product-tropical.jpg",
 },
 {
     id:11,
@@ -107,6 +118,7 @@ const productsArray: Product[] = [
     describtion: "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Pellentesque in ipsum id orci porta dapibus.",
     features: 'Small',
     categories: 'Plants',
+    image: "/images/product-smterrarium.jpg",
 },
 {
     id:12,
@@ -116,6 +128,7 @@ const productsArray: Product[] = [
     describtion: "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Pellentesque in ipsum id orci porta dapibus.",
     features: 'Large',
     categories: 'Plants',
+    image: "/images/product-smplant.jpg",
 },
 ]
 

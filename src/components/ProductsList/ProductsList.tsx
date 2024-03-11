@@ -21,6 +21,7 @@ const ProductsList = (props: Props) => {
                         describtion,
                         features,
                         categories,
+                        image,
                     }) => (
                         <Grid item xs={12} sm={6} md={4} key={id}>
                             <ProductsListItem
@@ -30,6 +31,7 @@ const ProductsList = (props: Props) => {
                                 describtion={describtion}
                                 features={features}
                                 categories={categories}
+                                image={image}
                             />
                         </Grid>
                     )

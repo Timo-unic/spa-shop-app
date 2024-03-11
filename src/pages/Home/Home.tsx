@@ -1,4 +1,4 @@
-import ProductsList from 'container/ProductsList/ProductsList'
+import ProductsList from 'components/ProductsList/ProductsList'
 
 type Props = {}
 
