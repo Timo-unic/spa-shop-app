@@ -5,10 +5,12 @@ type Product = {
     describtion: string
     features: string
     categories: string
+    id:number
 }
 
 const productsArray: Product[] = [
     {
+        id:1,
     title: 'Large candle',
     price: 10,
     rating: 5,
@@ -17,6 +19,7 @@ const productsArray: Product[] = [
     categories: 'Candles',
 },
 {
+    id:2,
     title: 'Scented candles',
     price: 40,
     rating: 5,
@@ -25,6 +28,7 @@ const productsArray: Product[] = [
     categories: 'Candles',
 },
 {
+    id:3,
     title: 'Eucalyptus candle',
     price: 12,
     rating: 5,
@@ -33,6 +37,7 @@ const productsArray: Product[] = [
     categories: 'Candles',
 },
 {
+    id:4,
     title: 'Ceramic creamer',
     price: 90,
     rating: 5,
@@ -41,6 +46,7 @@ const productsArray: Product[] = [
     categories: 'Ceramics',
 },
 {
+    id:5,
     title: 'Ceramic plates',
     price: 60,
     rating: 5,
@@ -49,6 +55,7 @@ const productsArray: Product[] = [
     categories: 'Ceramics',
 },
 {
+    id:6,
     title: 'Ceramic bowls',
     price: 40,
     rating: 5,
@@ -57,6 +64,7 @@ const productsArray: Product[] = [
     categories: 'Ceramics',
 },
 {
+    id:7,
     title: 'Handmade man necklace',
     price: 40,
     rating: 5,
@@ -65,6 +73,7 @@ const productsArray: Product[] = [
     categories: 'Handmade jewels',
 },
 {
+    id:8,
     title: 'Seashell earrings',
     price: 90,
     rating: 5,
@@ -73,6 +82,7 @@ const productsArray: Product[] = [
     categories: 'Handmade jewels',
 },
 {
+    id:9,
     title: 'Pearl and gold earrings',
     price: 60,
     rating: 5,
@@ -81,6 +91,7 @@ const productsArray: Product[] = [
     categories: 'Handmade jewels',
 },
 {
+    id:10,
     title: 'Tropical plant',
     price: 15,
     rating: 5,
@@ -89,6 +100,7 @@ const productsArray: Product[] = [
     categories: 'Plants',
 },
 {
+    id:11,
     title: 'Small terrarium',
     price: 15,
     rating: 5,
@@ -97,6 +109,7 @@ const productsArray: Product[] = [
     categories: 'Plants',
 },
 {
+    id:12,
     title: 'Small plant',
     price: 15,
     rating: 5,
