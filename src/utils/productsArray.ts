@@ -11,7 +11,7 @@ type Product = {
 
 const productsArray: Product[] = [
     {
-        id:1,
+    id:1,
     title: 'Large candle',
     price: 10,
     rating: 5,

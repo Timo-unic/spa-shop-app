@@ -16,6 +16,7 @@ type Props = {
     features: string
     categories: string
     image: string
+    addProductToCart: (count: number, price: number) => void
 }
 
 const ProductsListItem = ({
@@ -26,15 +27,16 @@ const ProductsListItem = ({
     features,
     categories,
     image,
+    addProductToCart,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
 
     const onIncrement = () => {
-        setCount(count + 1)
+        setCount((prevState) => prevState + 1)
     }
 
     const onDecrement = () => {
-        setCount(count - 1)
+        setCount((prevState) => prevState - 1)
     }
 
     return (
@@ -50,17 +52,29 @@ const ProductsListItem = ({
                 <div className="product-features">Pack: {features}</div>
                 <div className="product-categories">{categories}</div>
                 <div className="product-quantity">
-                    <Button variant="outlined" onClick={() => onDecrement()}>
+                    <Button
+                        variant="outlined"
+                        onClick={() => onDecrement()}
+                        disabled={count <= 0}
+                    >
                         -
                     </Button>
                     <TextField size="small" value={count} />
-                    <Button variant="outlined" onClick={() => onIncrement()}>
+                    <Button
+                        variant="outlined"
+                        onClick={() => onIncrement()}
+                        disabled={count >= 10}
+                    >
                         +
                     </Button>
                 </div>
             </CardContent>
             <CardActions className="product-btn-wrap">
-                <Button variant="contained" color="warning">
+                <Button
+                    variant="contained"
+                    color="warning"
+                    onClick={() => addProductToCart(count, price)}
+                >
                     Add to cart
                 </Button>
             </CardActions>
