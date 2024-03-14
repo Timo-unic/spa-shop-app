@@ -9,12 +9,10 @@ type Props = {
     }
 }
 
-const CartHeader = ({
+const Blog = ({
     productsInCart,
     productsObject = getProductsObject(productsArray),
 }: Props) => {
-    // console.log(Object.keys(productsInCart))
-    console.log(productsObject)
     return (
         <div>
             {Object.keys(productsInCart).map((productId) => (
@@ -27,4 +25,4 @@ const CartHeader = ({
     )
 }
 
-export default CartHeader
+export default Blog
