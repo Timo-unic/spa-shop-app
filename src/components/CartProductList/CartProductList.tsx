@@ -16,6 +16,7 @@ const CartProductList = ({
     productsObject = getProductsObject(productsArray),
     CartItem = CartProductListItem,
 }: Props) => {
+    console.log(productsInCart)
     return (
         <>
             {Object.keys(productsInCart).map((productId) => (
