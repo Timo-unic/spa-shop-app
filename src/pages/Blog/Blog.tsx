@@ -2,20 +2,11 @@ import { Grid, Typography } from '@mui/material'
 import CartProductList from 'components/CartProductList/CartProductList'
 import CartProductListItemExtended from 'components/CartProductList/CartProductListItemExtended'
 import CartTotal from 'components/CartTotal/CartTotal'
+import { useAppSelector } from 'toolkit/hooks'
 
-type Props = {
-    productsInCart: {
-        [id: number]: number
-    }
-    removeProductFromCart: (id: number) => void
-    changeProductQuantity: (id: number, count: number) => void
-}
+const Blog = () => {
+    const productsInCart = useAppSelector((state) => state.productsInCart)
 
-const Blog = ({
-    productsInCart,
-    removeProductFromCart,
-    changeProductQuantity,
-}: Props) => {
     return (
         <div>
             <Typography
@@ -27,10 +18,8 @@ const Blog = ({
             </Typography>
             <Grid container spacing={4}>
                 <CartProductList
-                    removeProductFromCart={removeProductFromCart}
                     productsInCart={productsInCart}
                     CartItem={CartProductListItemExtended}
-                    changeProductQuantity={changeProductQuantity}
                 />
             </Grid>
 

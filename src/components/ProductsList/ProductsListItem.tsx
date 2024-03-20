@@ -4,7 +4,9 @@ import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import { useAppSelector } from 'hooks'
+import { useAppDispath, useAppSelector } from 'toolkit/hooks'
+import { addLike, removeLike } from 'toolkit/likeReducer'
+import { addProductToCart } from 'toolkit/cartReducer'
 
 type Props = {
     id: number
@@ -15,7 +17,7 @@ type Props = {
     features: string
     categories: string
     image: string
-    addProductToCart: (count: number, price: number) => void
+    addProductToCart?: (count: number, price: number) => void
 }
 
 const ProductsListItem = ({
@@ -27,7 +29,6 @@ const ProductsListItem = ({
     features,
     categories,
     image,
-    addProductToCart,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
 
@@ -41,10 +42,19 @@ const ProductsListItem = ({
 
     const isLiked = useAppSelector((state) => state.productsLikeState[id])
 
+    const dispatch = useAppDispath()
+
     return (
         <Card variant="outlined" className="product">
             <CardContent>
-                <Button variant="outlined">
+                <Button
+                    variant="outlined"
+                    onClick={() =>
+                        isLiked
+                            ? dispatch(removeLike(id))
+                            : dispatch(addLike(id))
+                    }
+                >
                     {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                 </Button>
                 <div className="product-image">
@@ -66,7 +76,14 @@ const ProductsListItem = ({
                 <Button
                     variant="contained"
                     color="warning"
-                    onClick={() => addProductToCart(id, count)}
+                    onClick={() =>
+                        dispatch(
+                            addProductToCart({
+                                id,
+                                count,
+                            })
+                        )
+                    }
                 >
                     Add to cart
                 </Button>
