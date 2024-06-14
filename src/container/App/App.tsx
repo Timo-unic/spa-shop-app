@@ -7,6 +7,7 @@ import Home from 'pages/Home/Home'
 import { Container } from '@mui/material'
 import Blog from 'pages/Blog/Blog'
 import CheckoutPage from 'pages/Checkout/CheckoutPage'
+import TopHeader from 'container/Header/TopHeader'
 
 type Props = {}
 
@@ -14,6 +15,7 @@ const App = (props: Props) => {
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
+            <TopHeader />
             <Header />
             <Container sx={{ padding: '60px 0' }}>
                 <Routes>

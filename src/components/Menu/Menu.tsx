@@ -1,4 +1,6 @@
+import MenuItemCategories from './MenuItemCategories'
 import MenuItem from './MenuItem'
+import MenuItemProducts from './MenuItemProducts'
 
 type Props = {}
 
@@ -7,8 +9,8 @@ const Menu = (props: Props) => {
         <>
             <MenuItem to="/">Home</MenuItem>
             <MenuItem to="/about">About</MenuItem>
-            <MenuItem to="/products">Products</MenuItem>
-            <MenuItem to="/categories">Categories</MenuItem>
+            <MenuItemProducts />
+            <MenuItemCategories />
             <MenuItem to="/blog">Blog</MenuItem>
             <MenuItem to="/contact">Contact</MenuItem>
         </>

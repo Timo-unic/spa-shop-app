@@ -1,5 +1,4 @@
 import { Button, Card, CardActions, CardContent } from '@mui/material'
-import './ProductsListItem.scss'
 import { useState } from 'react'
 import Quantity from 'components/Quantity/Quantity'
 import FavoriteIcon from '@mui/icons-material/Favorite'
@@ -7,6 +6,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { useAppDispath, useAppSelector } from 'toolkit/hooks'
 import { addLike, removeLike } from 'toolkit/likeReducer'
 import { addProductToCart } from 'toolkit/cartReducer'
+import './ProductsListItem.scss'
 
 type Props = {
     id: number
@@ -45,10 +45,16 @@ const ProductsListItem = ({
     const dispatch = useAppDispath()
 
     return (
-        <Card variant="outlined" className="product">
+        <Card
+            variant="outlined"
+            className="product"
+            sx={{ position: 'relative' }}
+        >
             <CardContent>
                 <Button
+                    className="btn-favorite"
                     variant="outlined"
+                    sx={{ position: 'absolute' }}
                     onClick={() =>
                         isLiked
                             ? dispatch(removeLike(id))

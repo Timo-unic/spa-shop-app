@@ -5,11 +5,18 @@ import './MenuItem.scss'
 type Props = {
     to: string
     children: React.ReactNode
+    onClick?: any
+    disableRipple?: any
 }
 
-const MenuItem = ({ to, children }: Props) => {
+const MenuItem = ({ to, children, onClick, disableRipple }: Props) => {
     return (
-        <Button>
+        <Button
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+            }}
+        >
             <NavLink
                 className={({ isActive }) =>
                     isActive ? 'menu-item-active' : 'menu-item'

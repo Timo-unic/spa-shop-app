@@ -1,5 +1,5 @@
 .product {
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .product-title {
@@ -42,5 +42,17 @@
 
     input {
         text-align: center;
+    }
+}
+
+.btn-favorite {
+    width: 30px;
+    height: 40px;
+    top: 45px;
+    left: 25px;
+    color: yellow;
+    border-color: yellow;
+    :hover {
+        color: blue;
     }
 }
