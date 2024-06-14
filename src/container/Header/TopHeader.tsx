@@ -68,9 +68,9 @@ const TopHeader = (props: Props) => {
         setIsModalOpen(true)
     }
 
-    function closeModal() {
-        setIsModalOpen(false)
-    }
+    // function closeModal() {
+    //     setIsModalOpen(false)
+    // }
 
     const isMenuOpen = Boolean(anchorEl)
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
