@@ -2,14 +2,12 @@ import { Grid, Typography } from '@mui/material'
 import CartProductList from 'components/CartProductList/CartProductList'
 import CartProductListItemExtended from 'components/CartProductList/CartProductListItemExtended'
 import CartTotal from 'components/CartTotal/CartTotal'
+import { Link } from 'react-router-dom'
+import { useAppSelector } from 'toolkit/hooks'
 
-type Props = {
-    productsInCart: {
-        [id: number]: number
-    }
-}
+const Blog = () => {
+    const productsInCart = useAppSelector((state) => state.productsInCart)
 
-const Blog = ({ productsInCart }: Props) => {
     return (
         <div>
             <Typography
@@ -25,8 +23,8 @@ const Blog = ({ productsInCart }: Props) => {
                     CartItem={CartProductListItemExtended}
                 />
             </Grid>
-
             <CartTotal productsInCart={productsInCart} />
+            <Link to="/checkout">Proceed to Checkout</Link>
         </div>
     )
 }

@@ -1,0 +1,13 @@
+.menu-item-active {
+    text-decoration: none;
+    color: #bc4b20;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    &:hover {
+        color: #bc4b20;
+    }
+}

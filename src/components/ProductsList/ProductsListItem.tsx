@@ -1,12 +1,12 @@
-import {
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    TextField,
-} from '@mui/material'
-import './ProductsListItem.scss'
+import { Button, Card, CardActions, CardContent } from '@mui/material'
 import { useState } from 'react'
+import Quantity from 'components/Quantity/Quantity'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { useAppDispath, useAppSelector } from 'toolkit/hooks'
+import { addLike, removeLike } from 'toolkit/likeReducer'
+import { addProductToCart } from 'toolkit/cartReducer'
+import './ProductsListItem.scss'
 
 type Props = {
     id: number
@@ -17,7 +17,7 @@ type Props = {
     features: string
     categories: string
     image: string
-    addProductToCart: (count: number, price: number) => void
+    addProductToCart?: (count: number, price: number) => void
 }
 
 const ProductsListItem = ({
@@ -29,7 +29,6 @@ const ProductsListItem = ({
     features,
     categories,
     image,
-    addProductToCart,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
 
@@ -41,9 +40,29 @@ const ProductsListItem = ({
         setCount((prevState) => prevState - 1)
     }
 
+    const isLiked = useAppSelector((state) => state.productsLikeState[id])
+
+    const dispatch = useAppDispath()
+
     return (
-        <Card variant="outlined" className="product">
+        <Card
+            variant="outlined"
+            className="product"
+            sx={{ position: 'relative' }}
+        >
             <CardContent>
+                <Button
+                    className="btn-favorite"
+                    variant="outlined"
+                    sx={{ position: 'absolute' }}
+                    onClick={() =>
+                        isLiked
+                            ? dispatch(removeLike(id))
+                            : dispatch(addLike(id))
+                    }
+                >
+                    {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                </Button>
                 <div className="product-image">
                     <img src={image} alt="" />
                 </div>
@@ -53,29 +72,24 @@ const ProductsListItem = ({
                 <div className="product-describtion">{describtion}</div>
                 <div className="product-features">Pack: {features}</div>
                 <div className="product-categories">{categories}</div>
-                <div className="product-quantity">
-                    <Button
-                        variant="outlined"
-                        onClick={() => onDecrement()}
-                        disabled={count <= 0}
-                    >
-                        -
-                    </Button>
-                    <TextField size="small" value={count} />
-                    <Button
-                        variant="outlined"
-                        onClick={() => onIncrement()}
-                        disabled={count >= 10}
-                    >
-                        +
-                    </Button>
-                </div>
+                <Quantity
+                    count={count}
+                    onDecrement={onDecrement}
+                    onIncrement={onIncrement}
+                />
             </CardContent>
             <CardActions className="product-btn-wrap">
                 <Button
                     variant="contained"
                     color="warning"
-                    onClick={() => addProductToCart(id, count)}
+                    onClick={() =>
+                        dispatch(
+                            addProductToCart({
+                                id,
+                                count,
+                            })
+                        )
+                    }
                 >
                     Add to cart
                 </Button>

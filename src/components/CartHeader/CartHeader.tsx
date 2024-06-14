@@ -1,18 +1,33 @@
 import CartProductList from 'components/CartProductList/CartProductList'
 import CartTotal from 'components/CartTotal/CartTotal'
+import { useAppSelector } from 'toolkit/hooks'
+import './CartHeader.scss'
+import { useEffect, useRef } from 'react'
 
 type Props = {
-    productsInCart: {
-        [id: number]: number
-    }
+    open: boolean
 }
 
-const CartHeader = ({ productsInCart }: Props) => {
+const CartHeader = ({ open }: Props) => {
+    const productsInCart = useAppSelector((state) => state.productsInCart)
+    const dialog = useRef()
+
+    useEffect(() => {
+        if (open) {
+            dialog.current.showModal()
+        } else {
+            dialog.current.close()
+        }
+    }, [open])
+
+    console.log(dialog)
+
     return (
-        <div>
+        <dialog ref={dialog}>
+            <h3>Cart List Modal</h3>
             <CartProductList productsInCart={productsInCart} />
             <CartTotal productsInCart={productsInCart} />
-        </div>
+        </dialog>
     )
 }
 

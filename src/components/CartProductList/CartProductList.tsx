@@ -8,12 +8,14 @@ type Props = {
     productsObject?: {
         [id: number]: Product
     }
+
     CartItem?: any
 }
 
 const CartProductList = ({
     productsInCart,
     productsObject = getProductsObject(productsArray),
+
     CartItem = CartProductListItem,
 }: Props) => {
     return (

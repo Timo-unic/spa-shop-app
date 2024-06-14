@@ -1,6 +1,12 @@
 import { Button, Card, CardActions, CardContent, Grid } from '@mui/material'
 import { Product } from 'utils/productsArray'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
+import Quantity from 'components/Quantity/Quantity'
+import { useAppDispath } from 'toolkit/hooks'
+import {
+    changeProductQuantity,
+    removeProductFromCart,
+} from 'toolkit/cartReducer'
 
 type Props = {
     productCount: number
@@ -8,6 +14,8 @@ type Props = {
 }
 
 const CartProductListItemExtended = ({ product, productCount }: Props) => {
+    const dispatch = useAppDispath()
+
     return (
         <Grid item xs={12} sm={4}>
             <Card>
@@ -19,8 +27,35 @@ const CartProductListItemExtended = ({ product, productCount }: Props) => {
                     <p>Price for one item: {product.price}</p>
                     <p>Count: {productCount}</p>
                 </CardContent>
+                <Quantity
+                    count={productCount}
+                    onDecrement={() =>
+                        productCount <= 1
+                            ? dispatch(removeProductFromCart(product.id))
+                            : dispatch(
+                                  changeProductQuantity({
+                                      id: product.id,
+                                      count: productCount - 1,
+                                  })
+                              )
+                    }
+                    onIncrement={() =>
+                        dispatch(
+                            changeProductQuantity({
+                                id: product.id,
+                                count: productCount + 1,
+                            })
+                        )
+                    }
+                    // minCount={0}
+                />
                 <CardActions>
-                    <Button variant="outlined">
+                    <Button
+                        variant="outlined"
+                        onClick={() =>
+                            dispatch(removeProductFromCart(product.id))
+                        }
+                    >
                         <DeleteForeverIcon />
                     </Button>
                 </CardActions>
