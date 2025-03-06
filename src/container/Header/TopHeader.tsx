@@ -68,9 +68,9 @@ const TopHeader = (props: Props) => {
         setIsModalOpen(true)
     }
 
-    // function closeModal() {
-    //     setIsModalOpen(false)
-    // }
+    function closeModal() {
+        setIsModalOpen(false)
+    }
 
     const isMenuOpen = Boolean(anchorEl)
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
@@ -177,8 +177,11 @@ const TopHeader = (props: Props) => {
                             <AccountCircle />
                         </IconButton>
                         <IconButton
+                            className="basket-icon"
+                            sx={{ position: 'relative' }}
                             aria-label="add to shopping cart"
                             onMouseEnter={() => openModal()}
+                            onMouseDown={() => closeModal()}
                         >
                             <AddShoppingCart
                                 fontSize="large"

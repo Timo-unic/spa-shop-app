@@ -20,11 +20,9 @@ const CartHeader = ({ open }: Props) => {
         }
     }, [open])
 
-    console.log(dialog)
-
     return (
-        <dialog ref={dialog}>
-            <h3>Cart List Modal</h3>
+        <dialog ref={dialog} className="dialog-modal">
+            <h3 className="modal-text">Cart List Modal</h3>
             <CartProductList productsInCart={productsInCart} />
             <CartTotal productsInCart={productsInCart} />
         </dialog>

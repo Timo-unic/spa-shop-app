@@ -1,10 +1,17 @@
-dialog {
-    margin: 10px auto;
+.dialog-modal {
+    margin: 50px;
     padding: 5px;
     border: 1px solid gray;
     border-radius: 12px;
     font-size: 14px;
-    top: 30px;
+    left: auto;
     min-width: 150px;
     z-index: 10;
+
+    .modal-text {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
 }
