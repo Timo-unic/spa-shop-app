@@ -177,8 +177,11 @@ const TopHeader = (props: Props) => {
                             <AccountCircle />
                         </IconButton>
                         <IconButton
+                            className="basket-icon"
+                            sx={{ position: 'relative' }}
                             aria-label="add to shopping cart"
                             onMouseEnter={() => openModal()}
+                            onMouseDown={() => closeModal()}
                         >
                             <AddShoppingCart
                                 fontSize="large"

@@ -1,5 +1,4 @@
 import { Button, Card, CardActions, CardContent, Grid } from '@mui/material'
-import { Product } from 'utils/productsArray'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import Quantity from 'components/Quantity/Quantity'
 import { useAppDispath } from 'toolkit/hooks'
@@ -7,10 +6,11 @@ import {
     changeProductQuantity,
     removeProductFromCart,
 } from 'toolkit/cartReducer'
+import { IProductType } from 'utils/modelProductsArray'
 
 type Props = {
     productCount: number
-    product: Product
+    product: IProductType
 }
 
 const CartProductListItemExtended = ({ product, productCount }: Props) => {

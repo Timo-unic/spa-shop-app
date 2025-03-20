@@ -5,9 +5,16 @@ type Props = {
     onIncrement: () => void
     count: number
     minCount?: number
+    maxCount?: number
 }
 
-const Quantity = ({ count, onDecrement, onIncrement, minCount = 0 }: Props) => {
+const Quantity = ({
+    count,
+    onDecrement,
+    onIncrement,
+    minCount = 0,
+    maxCount = Infinity,
+}: Props) => {
     console.log(count)
     return (
         <div className="product-quantity">
@@ -18,11 +25,11 @@ const Quantity = ({ count, onDecrement, onIncrement, minCount = 0 }: Props) => {
             >
                 -
             </Button>
-            <TextField size="small" value={count} />
+            <TextField value={count} sx={{ width: '100%' }} />
             <Button
                 variant="outlined"
                 onClick={() => onIncrement()}
-                disabled={count >= 10}
+                disabled={count >= maxCount}
             >
                 +
             </Button>

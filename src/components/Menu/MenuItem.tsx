@@ -12,6 +12,8 @@ type Props = {
 const MenuItem = ({ to, children, onClick, disableRipple }: Props) => {
     return (
         <Button
+            onClick={onClick}
+            disableRipple={disableRipple}
             sx={{
                 display: 'flex',
                 flexDirection: 'column',

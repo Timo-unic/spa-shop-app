@@ -1,19 +1,10 @@
-import { Grid, Typography } from '@mui/material'
+import { Grid } from '@mui/material'
 import ProductsListItem from './ProductsListItem'
 import productsArray from 'utils/productsArray'
 
 const ProductsList = () => {
     return (
         <>
-            <Typography
-                variant="h4"
-                align="center"
-                component="h2"
-                sx={{ marginBottom: '20px' }}
-            >
-                Here's a list of all our products
-            </Typography>
-
             <Grid container spacing={3}>
                 {productsArray.map(
                     ({
@@ -22,7 +13,6 @@ const ProductsList = () => {
                         price,
                         rating,
                         describtion,
-                        features,
                         categories,
                         image,
                     }) => (
@@ -33,7 +23,6 @@ const ProductsList = () => {
                                 price={price}
                                 rating={rating}
                                 describtion={describtion}
-                                features={features}
                                 categories={categories}
                                 image={image}
                             />
