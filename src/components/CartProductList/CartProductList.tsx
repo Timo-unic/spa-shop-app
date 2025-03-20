@@ -1,4 +1,4 @@
-import productsArray, { Product, getProductsObject } from 'utils/productsArray'
+import productsArray, { getProductsObject, Product } from 'utils/productsArray'
 import CartProductListItem from './CartProductListItem'
 
 type Props = {

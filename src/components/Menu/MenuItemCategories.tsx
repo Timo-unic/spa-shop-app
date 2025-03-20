@@ -4,6 +4,7 @@ import Menu, { MenuProps } from '@mui/material/Menu'
 import MenuItem from './MenuItem'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import { useState } from 'react'
+import productsShopArray from 'utils/productsShopArray'
 
 const StyledMenu = styled((props: MenuProps) => (
     <Menu
@@ -86,20 +87,52 @@ const MenuItemCategories = () => {
                 open={open}
                 onClose={handleClose}
             >
-                <MenuItem to="/candles" onClick={handleClose} disableRipple>
-                    Candles
-                </MenuItem>
-                <MenuItem to="/cersmics" onClick={handleClose} disableRipple>
+                {productsShopArray.map((category) => (
+                    <MenuItem
+                        key={category.id}
+                        to={`product-category/${category.id}`}
+                        onClick={handleClose}
+                        disableRipple
+                    >
+                        {category.name}
+                    </MenuItem>
+                ))}
+                {/* <MenuItem
+                    to="product-category/ceramics"
+                    onClick={handleClose}
+                    disableRipple
+                >
                     Ceramics
                 </MenuItem>
 
                 <MenuItem
-                    to="/handmade_jewels"
+                    to="product-category/jewels"
                     onClick={handleClose}
                     disableRipple
                 >
                     Handmade jewels
                 </MenuItem>
+                <MenuItem
+                    to="product-category/candles"
+                    onClick={handleClose}
+                    disableRipple
+                >
+                    Candles
+                </MenuItem>
+                <MenuItem
+                    to="product-category/plants"
+                    onClick={handleClose}
+                    disableRipple
+                >
+                    Plants
+                </MenuItem>
+                <MenuItem
+                    to="product-category/decor"
+                    onClick={handleClose}
+                    disableRipple
+                >
+                    Decorations
+                </MenuItem> */}
             </StyledMenu>
         </div>
     )

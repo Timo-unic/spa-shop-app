@@ -12,9 +12,8 @@ type Props = {
     id: number
     title: string
     price: number
-    rating: number
-    describtion: string
-    features: string
+    rating?: number
+    describtion?: string
     categories: string
     image: string
     addProductToCart?: (count: number, price: number) => void
@@ -26,7 +25,6 @@ const ProductsListItem = ({
     price,
     rating,
     describtion,
-    features,
     categories,
     image,
 }: Props) => {
@@ -70,7 +68,7 @@ const ProductsListItem = ({
                 <div className="product-price">{price}$</div>
                 <div className="product-rating">{rating}stars</div>
                 <div className="product-describtion">{describtion}</div>
-                <div className="product-features">Pack: {features}</div>
+                <div className="product-features">Pack: </div>
                 <div className="product-categories">{categories}</div>
                 <Quantity
                     count={count}
