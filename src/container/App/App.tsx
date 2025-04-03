@@ -12,6 +12,7 @@ import ContactPage from 'pages/Contact/ContactPage'
 import AboutPage from 'pages/About/AboutPage'
 import ProductWrapper from 'components/ProductsList/ProductWrapper'
 import ProductCategoryWrapper from 'pages/Categories/ProductCategoryWrapper'
+import CartPage from 'pages/Cart/CartPage'
 
 // type Props = {}
 
@@ -34,6 +35,7 @@ const App = () => {
                     path="products/:productId"
                     element={<ProductWrapper />}
                 />
+                <Route path="cart" element={<CartPage />} />
                 <Route path="blog" element={<Blog />} />
                 <Route path="contact" element={<ContactPage />} />
                 <Route path="checkout" element={<CheckoutPage />} />

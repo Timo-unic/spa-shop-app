@@ -97,42 +97,6 @@ const MenuItemCategories = () => {
                         {category.name}
                     </MenuItem>
                 ))}
-                {/* <MenuItem
-                    to="product-category/ceramics"
-                    onClick={handleClose}
-                    disableRipple
-                >
-                    Ceramics
-                </MenuItem>
-
-                <MenuItem
-                    to="product-category/jewels"
-                    onClick={handleClose}
-                    disableRipple
-                >
-                    Handmade jewels
-                </MenuItem>
-                <MenuItem
-                    to="product-category/candles"
-                    onClick={handleClose}
-                    disableRipple
-                >
-                    Candles
-                </MenuItem>
-                <MenuItem
-                    to="product-category/plants"
-                    onClick={handleClose}
-                    disableRipple
-                >
-                    Plants
-                </MenuItem>
-                <MenuItem
-                    to="product-category/decor"
-                    onClick={handleClose}
-                    disableRipple
-                >
-                    Decorations
-                </MenuItem> */}
             </StyledMenu>
         </div>
     )

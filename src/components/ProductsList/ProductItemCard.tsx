@@ -14,6 +14,9 @@ import {
 import { useState } from 'react'
 import './ProductsListItem.scss'
 import Quantity from 'components/Quantity/Quantity'
+import CheckIcon from '@mui/icons-material/Check'
+import { AddShoppingCart } from '@mui/icons-material'
+import { Link } from 'react-router-dom'
 
 interface IProductProps {
     product: {
@@ -93,6 +96,24 @@ const ProductItemCard = ({ product }: IProductProps) => {
             sx={{ backgroundColor: '#f7efec', padding: '30px' }}
         >
             <Container maxWidth="xl">
+                <div className="cartpage-banner">
+                    <div className="cartpage-banner-text">
+                        <CheckIcon fontSize="large" sx={{ color: 'white' }} />
+                        have been added to your cart.
+                    </div>
+                    <Link
+                        to="/cart"
+                        style={{ textDecoration: 'none', color: 'white' }}
+                    >
+                        <div className="cartpage-banner-text">
+                            <AddShoppingCart
+                                fontSize="large"
+                                sx={{ color: 'white' }}
+                            />
+                            View Cart
+                        </div>
+                    </Link>
+                </div>
                 <Grid container columnSpacing={3} columns={12}>
                     <Grid item xl={6}>
                         <Card variant="outlined">
